@@ -32,6 +32,13 @@ contract FlowRepository {
   }
   
   /**
+   * Return number of stations
+   */
+  function getStationCount() public view returns (uint) {
+    return stations.length;
+  }
+  
+  /**
    * Create a new Flow contract and assign ownership to the flowOwner. 
    *
    * Flows are indexed by origin and destination. 

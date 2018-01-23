@@ -7,7 +7,7 @@
     "test": "test"
   },
   "scripts": {
-    "test": "ganache-cli & truffle test"
+    "test": "ganache-cli & (truffle migrate; truffle test)"
   },
   "author": "Linus Norton",
   "license": "GPL-3.0",

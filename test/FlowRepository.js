@@ -1,12 +1,16 @@
 const FlowRepository = artifacts.require("../FlowRepository.sol");
 
-contract("FlowRepository", async ([owner]) => {
-  const flowRepository = await FlowRepository.deployed();
+contract("FlowRepository", ([owner]) => {
 
   it("adds stations", async () => {
-    await flowRepository.addStation.call("PDW");
-    
-    assert.equal(flowRepository.stations(0), "PDW");
+    const flowRepository = await FlowRepository.deployed();
+
+    await flowRepository.addStation.sendTransaction("PDW");
+
+    const count = await flowRepository.getStationCount.call();
+    const station = await flowRepository.stations.call(count - 1);
+
+    assert.equal(station, "PDW");
   });
   
 });
