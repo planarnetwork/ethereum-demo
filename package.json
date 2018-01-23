@@ -13,6 +13,7 @@
   "license": "GPL-3.0",
   "dependencies": {},
   "devDependencies": {
+    "ganache-cli": "^6.0.3",
     "truffle": "^4.0.5"
   }
 }
