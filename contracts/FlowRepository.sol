@@ -21,7 +21,7 @@ contract FlowRepository {
     require(msg.sender == _account);
     _;
   }  
-  
+
   /**
    * Add the given station to the list of stations returning it's ID 
    */
@@ -54,4 +54,12 @@ contract FlowRepository {
     
     flows[origin][destination].push(flow);
   }
+  
+  /**
+   * Returns flows between the origin and destination
+   */
+  function getFlows(uint origin, uint destination) public view returns (address[]) {
+    return flows[origin][destination];
+  }
+  
 }
