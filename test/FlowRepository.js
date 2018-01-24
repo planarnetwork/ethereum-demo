@@ -24,8 +24,14 @@ contract("FlowRepository", ([owner, operator]) => {
   
   it("adds flows", async () => {
     const flowRepository = await FlowRepository.deployed();
-
-    await flowRepository.addFlow.sendTransaction(0, 1, 0, false, operator);
+    const count = await flowRepository.getStationCount.call();
+    const stationsIndex = {};
+    
+    for (let i = 0; i < count; i++) {
+      stationsIndex[await flowRepository.stations.call(i)] = i;
+    }
+    
+    await flowRepository.addFlow.sendTransaction(stationsIndex["PDW"], stationsIndex["WAE"], 0, 0, false, operator);
     
     const [flowAddress] = await flowRepository.getFlows.call(0, 1);
     const flow = Flow.at(flowAddress);

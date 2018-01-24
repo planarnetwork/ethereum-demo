@@ -37,7 +37,7 @@ contract FlowRepository {
   function getStationCount() public view returns (uint) {
     return stations.length;
   }
-  
+
   /**
    * Create a new Flow contract and assign ownership to the flowOwner. 
    *
@@ -46,11 +46,12 @@ contract FlowRepository {
   function addFlow(
     uint origin, 
     uint destination, 
+    uint route,
     Flow.TransportMode mode,
     bool reversible,
     address flowOwner
   ) public onlyBy(owner) {
-    address flow = new Flow(mode, reversible, flowOwner);
+    address flow = new Flow(origin, destination, route, mode, reversible, flowOwner);
     
     flows[origin][destination].push(flow);
   }
