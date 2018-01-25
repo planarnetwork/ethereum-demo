@@ -7,13 +7,16 @@
     "test": "test"
   },
   "scripts": {
-    "test": "ganache-cli & (truffle migrate; truffle test)"
+    "test": "ganache-cli & (truffle migrate; truffle test)",
+    "build": "truffle compile && typechain ./build/**/*.json"
   },
   "author": "Linus Norton",
   "license": "GPL-3.0",
   "dependencies": {},
   "devDependencies": {
     "ganache-cli": "^6.0.3",
-    "truffle": "^4.0.5"
+    "memoized-class-decorator": "^1.5.0",
+    "truffle": "^4.0.5",
+    "typechain": "^0.1.0"
   }
 }

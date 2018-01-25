@@ -54,6 +54,10 @@ contract FlowRepository {
     address flow = new Flow(origin, destination, route, mode, reversible, flowOwner);
     
     flows[origin][destination].push(flow);
+    
+    if (reversible) {
+      flows[destination][origin].push(flow);      
+    }
   }
   
   /**

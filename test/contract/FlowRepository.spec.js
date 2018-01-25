@@ -1,3 +1,4 @@
+const {getStationIndex} = require("../util/Station.js");
 const FlowRepository = artifacts.require("../FlowRepository.sol");
 const Flow = artifacts.require("../Flow.sol");
 
@@ -24,19 +25,25 @@ contract("FlowRepository", ([owner, operator]) => {
   
   it("adds flows", async () => {
     const flowRepository = await FlowRepository.deployed();
-    const count = await flowRepository.getStationCount.call();
-    const stationsIndex = {};
-    
-    for (let i = 0; i < count; i++) {
-      stationsIndex[await flowRepository.stations.call(i)] = i;
-    }
+    const stationsIndex = await getStationIndex(flowRepository);
     
     await flowRepository.addFlow.sendTransaction(stationsIndex["PDW"], stationsIndex["WAE"], 0, 0, false, operator);
     
-    const [flowAddress] = await flowRepository.getFlows.call(0, 1);
+    const [flowAddress] = await flowRepository.getFlows.call(stationsIndex["PDW"], stationsIndex["WAE"]);
     const flow = Flow.at(flowAddress);
     
     assert.equal(flow instanceof Flow, true);
+  });
+
+  it("correctly indexes reversible flows", async () => {
+    const flowRepository = await FlowRepository.deployed();
+    const stationsIndex = await getStationIndex(flowRepository);
+    
+    await flowRepository.addFlow.sendTransaction(stationsIndex["PDW"], stationsIndex["WAE"], 0, 0, true, operator);
+    
+    const flows = await flowRepository.getFlows.call(stationsIndex["WAE"], stationsIndex["PDW"]);
+    
+    assert.equal(flows.length, 1);
   });
 
 });
