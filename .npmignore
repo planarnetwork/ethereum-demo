@@ -1,0 +1,8 @@
+node_modules/
+.git/
+contracts/
+migrations/
+test/
+.solhint.json
+.travis.yml
+.truffle.js
