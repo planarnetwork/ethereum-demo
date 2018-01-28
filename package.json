@@ -1,6 +1,6 @@
 {
   "name": "@planar/ethereum-demo",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Planar Network proof of concept",
   "directories": {
     "test": "test"
@@ -12,8 +12,7 @@
   "author": "Linus Norton",
   "license": "GPL-3.0",
   "dependencies": {
-    "bignumber.js": "^6.0.0",
-    "web3": "^1.0.0-beta.29"
+    "bignumber.js": "^6.0.0"
   },
   "devDependencies": {
     "ganache-cli": "^6.0.3",
