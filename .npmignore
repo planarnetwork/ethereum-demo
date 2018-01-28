@@ -9,3 +9,4 @@ test/
 .truffle.js
 contract/Migrations.js
 contract/Migrations.js.map
+contract/Migrations.d.ts

@@ -1,13 +1,13 @@
 {
   "name": "@planar/ethereum-demo",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Planar Network proof of concept",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "ganache-cli & (truffle migrate; truffle test)",
-    "prepublishOnly": "truffle compile && typechain ./build/contracts/**/*.json && tsc -p ."
+    "prepublishOnly": "truffle compile && typechain ./build/contracts/**/*.json && rm contract -rf && tsc -p ."
   },
   "author": "Linus Norton",
   "license": "GPL-3.0",
