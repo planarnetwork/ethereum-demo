@@ -2,7 +2,10 @@ node_modules/
 .git/
 contracts/
 migrations/
+build/
 test/
 .solhint.json
 .travis.yml
 .truffle.js
+contract/Migrations.js
+contract/Migrations.js.map

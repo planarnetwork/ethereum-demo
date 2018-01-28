@@ -1,23 +1,26 @@
 {
   "name": "@planar/ethereum-demo",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Planar Network proof of concept",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "test": "ganache-cli & (truffle migrate; truffle test)",
-    "prepublishOnly": "truffle compile"
+    "prepublishOnly": "truffle compile && typechain ./build/contracts/**/*.json && tsc -p ."
   },
   "author": "Linus Norton",
   "license": "GPL-3.0",
   "dependencies": {},
   "devDependencies": {
+    "bignumber.js": "^6.0.0",
     "ganache-cli": "^6.0.3",
     "memoized-class-decorator": "^1.5.0",
-    "truffle": "^4.0.5"
+    "truffle": "^4.0.5",
+    "typechain": "^0.1.0",
+    "typescript": "^2.6.2",
+    "web3": "^1.0.0-beta.29"
   },
-  "main": "truffle.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/planarnetwork/ethereum-demo.git"
