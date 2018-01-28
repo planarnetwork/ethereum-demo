@@ -1,6 +1,6 @@
 {
   "name": "@planar/ethereum-demo",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Planar Network proof of concept",
   "directories": {
     "test": "test"
@@ -11,15 +11,16 @@
   },
   "author": "Linus Norton",
   "license": "GPL-3.0",
-  "dependencies": {},
-  "devDependencies": {
+  "dependencies": {
     "bignumber.js": "^6.0.0",
+    "web3": "^1.0.0-beta.29"
+  },
+  "devDependencies": {
     "ganache-cli": "^6.0.3",
     "memoized-class-decorator": "^1.5.0",
     "truffle": "^4.0.5",
-    "typechain": "^0.1.0",
     "typescript": "^2.6.2",
-    "web3": "^1.0.0-beta.29"
+    "typechain": "^0.1.0"
   },
   "repository": {
     "type": "git",
