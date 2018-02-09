@@ -1,4 +1,4 @@
-pragma solidity ^0.4.17;
+pragma solidity ^0.4.19;
 
 /**
  * The flow contract returns fares between a specific origin and destination
