@@ -12,6 +12,20 @@ contract Flow {
     Plane
   }
   
+  struct PassengerSet {
+    uint8 numAdults;
+    uint8 numChildren;
+  }
+  
+  struct Fare {
+    uint origin;
+    uint destination;
+    uint route;
+    uint8 status;
+    byte32[2] restriction;
+    byte32[3] ticketType;
+  }
+  
   uint public origin;
   uint public destination;
   uint public route;
@@ -35,4 +49,11 @@ contract Flow {
     owner = _owner;
   }
   
+  function getFares(PassengerSet memory passengers) public view returns (Fare[]) {
+    
+  }
+  
+  function getAdultFare() private view returns (Fare) {
+    
+  }
 }
